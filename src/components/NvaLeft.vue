@@ -6,12 +6,12 @@
         <i class="el-icon-menu"></i>
         <span slot="title" >项目简介</span>
       </el-menu-item>
-    <el-submenu :index="index.toString()" v-for="(item, index) in getAPI">
+    <el-submenu :index="index.toString()" v-for="(item, index) in getAPI" key="index">
         <template slot="title">
         <el-badge :value="item.paths.length" class="item" :max='99'></el-badge>
         <span slot="title" >{{item.name}}</span>
         </template>
-        <span v-for="(item2, index2) in item.paths" @click="goApi(index,index2,item2.summary)">
+        <span v-for="(item2, index2) in item.paths" @click="goApi(index,index2,item2.summary)" keys=”index“>
         <el-menu-item :index="index +'-'+ index2">{{item2.summary}}</el-menu-item>
         </span>
         <!-- </el-menu-item-group>
